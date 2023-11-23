@@ -11,9 +11,9 @@
 <body>
     <div class="container">
         <h2>Enter Your Email</h2>
-        <form action="../ForgotPasswordGmail.php" method="POST">
+        <form action="HomePages/Enteryouremailprocess.php" method="POST">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" >
+            <input type="email" id="email" name="email">
             <button type="submit">Next</button>
         </form>
     </div>

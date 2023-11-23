@@ -299,6 +299,7 @@ $bloodBank->GetBloodbankData($bankid);
                     <div class="modal-body">
 
                         <div id="EditDonor"></div>
+                        <?php echo $token; ?>
                         <input type="hidden" name="token" value="<?php echo $token; ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
 
                         <div class="modal-footer">

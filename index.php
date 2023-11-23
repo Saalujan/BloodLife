@@ -75,9 +75,11 @@ if (isset($_COOKIE["remember_me"])) {
     <div class="left col-5">
         <div class="overlay">
             <h1>Blood Life</h1>
-            <p>Hello bloods, we welcome you to our blood stock managing platform.</p>
-            <q>As all of us are relations by blood; let's strengthen the bond with red flag</q>
+            
         </div>
+        <!-- <div class="lines">
+        <p>Hello bloods, we welcome you to our blood stock managing platform.</p>
+        </div> -->
     </div>
 
     <div class="right">
@@ -89,7 +91,12 @@ if (isset($_COOKIE["remember_me"])) {
                 <br>
                 <input type="password" name="password"   placeholder="password">
             </div>
+            <!-- <div class="image">
+                <img src="" alt="">
+            </div> -->
 
+
+            
             <br><br>
 
             <div class="remember-me--forget-password">
@@ -100,8 +107,7 @@ if (isset($_COOKIE["remember_me"])) {
                 </label>
                 
                 <label class="forgot">
-                    <input type="checkbox" name="forgot" checked/>
-                    <span class="text-checkbox">Forgot password</span>
+                <a href="HomePages/Enteryouremail.php">Forgot password?</a>
                 </label>
                 
             </div>

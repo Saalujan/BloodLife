@@ -78,24 +78,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     //create Campign object
                     $campaign  = new campaign($campaignId, $Title, $address, $startDate, $endDate, null, $Camstatus, $districtId, $bloodBankId);
-                    $status = $campaign->ViewCampaign() ? 1 : 2;
+                    $status = $campaign->ViewCampaign() ? 1 : "An error occurred while Viewing the campaign. Please Try again later.";
                     // echo $campaign->getAddress();        
 
                 } else {
                     //check status for valitations
-                    $status = !$validateDates ? 3 : (!$validateName ? 4 : (!$validateAddress ? 5 : 6));
+                    $status = !$validateDates ? "Invalid date format. Please use a valid date format." : (!$validateName ? "Invalid campaign name format. Please check the name." : (!$validateAddress ? "Invalid address format. Please check the address." : "Unknown validation error."));
                 }
             } else {
                 //status for not valid token
-                $status = 7;
+                $status = "Unauthorzied Activity! ";
             }
         } else {
             //status for empty value
-            $status = 8;
+            $status = "All Fields need to be Filled!";
         }
     } else {
         //status for isset value
-        $status = 9;
+        $status = "All Fields need to be Filled!";
     }
 } else {
 

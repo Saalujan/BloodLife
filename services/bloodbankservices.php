@@ -25,25 +25,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
 
     if (isset($_POST["VerificationCode"], $_SESSION["VerificationCode"], $_SESSION["bloodbank"], $_SESSION["email"], $_SESSION['timestamp'])) {
-        //check status for adding bloodbank
-    
-        $verifyOtp = (int) $_POST["VerificationCode"] === (int) $_SESSION["VerificationCode"];
+        // Check if all required variables are set
+        $verifyOtp = (int)$_POST["VerificationCode"] === (int)$_SESSION["VerificationCode"];
         $time = time() - $_SESSION['timestamp'] > 60000000;
-
+    
         if ($verifyOtp) {
-
             $status = $_SESSION["bloodbank"]->AddBloodBank($_SESSION["email"]) ? 1 : 2;
             session_destroy();
-
         } else {
             unset($_SESSION["VerificationCode"]);
             unset($_SESSION['timestamp']);
             $status = !$verifyOtp ? 3 : (!$time ? 4 : 5);
-
         }
-    } else if(isset($_POST["bloodBankName"], $_POST["Address"], $_POST["ContactNo"],
-              $_POST["district"], $_POST["division"], $_POST["token"],
-               $_POST["email"])) {
+    } elseif (isset($_POST["bloodBankName"], $_POST["Address"], $_POST["ContactNo"],
+        $_POST["district"], $_POST["division"], $_POST["token"],
+        $_POST["email"])) {
+
+   
     
     //empty value check
     if (!empty($_POST["bloodBankName"]) && ( $_POST["Address"]) && ($_POST["ContactNo"]) &&

@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }else{
                         $request = new bloodbankhsrequest(null, $createdDate, $quantity,$bloodgroup, $requestStatus,$hospitalRequestId, $bloodBankId);
                         if(!$request->ValidatePublishRequest()){
-                        $status = $request->addbloodbankRequest() ? 1 : " Hospital Request did not Publish" ;
+                        $status = $request->addbloodbankRequest() ? 1 : "An Error occurred While Publishing the Hospital Request. Please Try Again!" ;
                         
                         }else{
                             $status = "Request Already Published! ";
@@ -71,9 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         $status = "All Fields need to be Filled!";
-    }
-
-    
+    }  
 } else {
     $status = "Invalid Request Method!";
 }

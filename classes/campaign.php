@@ -274,7 +274,31 @@ public function ViewCampaign() {
 }
 
 
+static function getAllCampaigns(){
+    try {
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
 
+        $query = "SELECT campaigntable.*, district.district,bloodbank.ContactNo 
+        FROM campaigntable JOIN district ON campaigntable.districtId = district.districtId 
+        join bloodbank on campaigntable.bloodBankId = bloodbank.bloodBankId 
+        ";
+
+        $stmt = $con->prepare($query);
+       
+        $stmt->execute();
+
+        $dataArray = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $dataArray[] = $row;
+        }
+
+        return $dataArray;
+    } catch (PDOException $e) {
+        echo "Database Connection Error: " . $e->getMessage();
+    }
+    
+}
 
 
 }

@@ -144,7 +144,7 @@ $hospital->GetHospitalData($hospitalid);
                         <input type="number"  class="form-control" name="bloodQuantity" id="bloodQuantityInput" required>
                         <p id="bloodQuantityError" style="color: red;"></p>
 
-                        <!-- <script>
+                        <script>
                             document.addEventListener("DOMContentLoaded", function() {
                                 const bloodQuantityInput = document.getElementById("bloodQuantityInput");
                                 const bloodQuantityError = document.getElementById("bloodQuantityError");
@@ -171,7 +171,7 @@ $hospital->GetHospitalData($hospitalid);
                                 bloodgroup.value = "Select your Blood Group";
                                 status.value = "Select Status";
                             }
-                        </script> -->
+                        </script>
 
 
                         <label for="status">Status:</label>

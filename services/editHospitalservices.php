@@ -21,10 +21,41 @@ $status = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-   
-       if (isset(
-        $_POST["name"],$_POST["address"],$_POST["contactNumber"],
-        $_POST["district"],$_POST["division"],$_POST["token"],$_POST["hospitalId"]
+    if (isset($_POST["OldPassword"], $_POST["newpassword"], $_POST["confirmPassword"], $_POST["token"])) {
+        $userChangePassword = new User(null, null, null, null, $_POST["token"], null, null, null, null);
+        $validateToken = $userChangePassword->validateToken();
+        $userrole = $userChangePassword->getUserRole();
+        
+        if (($validateToken && $userrole == 3)) {
+            if ($_POST["newpassword"] === $_POST["confirmPassword"]) {
+            if ($userChangePassword->verifyPassword($userChangePassword->getEmail(), $_POST["OldPassword"])) {
+               
+                    if(Validation::validatePassword($_POST["newpassword"])){
+                    if ($userChangePassword->changePassword($userChangePassword->getEmail(), $_POST["newpassword"])) {
+                        $status = "Password change successfully"; 
+                    }else{
+                        $status = "Password didn't change";  
+                    }
+                }else{
+                    $status = "Storng password must contain 8digits ,symbals, 1 capital letter";
+                }
+                }else{
+                    $status = "Old Password In Not Correct"; 
+                }
+            }else{
+                $status = "New Password and Confirm password is not match"; 
+            }
+        }else{
+            $status = "UnAuthorized Token";
+        }
+    } else if (isset(
+        $_POST["name"],
+        $_POST["address"],
+        $_POST["contactNumber"],
+        $_POST["district"],
+        $_POST["division"],
+        $_POST["token"],
+        $_POST["hospitalId"]
     )) {
 
         //empty value check
@@ -54,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //validations
 
-            
+
             $validatePhoneNumber = Validation::validateContactNumber($contactNumber);
             $validateToken = $user->validateToken();
             $userrole = $user->getUserRole();
@@ -63,26 +94,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // echo $token;
             // echo $userrole;
             //token  checking
-            if ($validateToken && $userrole == 1) {
+            if (($validateToken && $userrole == 1) || ($validateToken && $userrole == 3)) {
 
                 //email,phonenumber validation check
                 if ($validatePhoneNumber) {
 
                     //email,username exist check in db
-                   
-                        //create hospital object
-                        $hospital = new hospital($hospitalId, $name, $address, $contactNumber, $districtId);
 
-                        // if ($hospitals->editHospital($hospitalId, $email)) {
-                        //     echo 'gugu';
-                        // }
+                    //create hospital object
+                    $hospital = new hospital($hospitalId, $name, $address, $contactNumber, $districtId);
 
-                       if($hospital->editHospital()){
-                        $status =1;
-                       }else{
-                        $status =2;
-                       }
-                  
+                    // if ($hospitals->editHospital($hospitalId, $email)) {
+                    //     echo 'gugu';
+                    // }4
+
+
+                    if ($hospital->editHospital()) {
+                        $status = 1;
+                    } else {
+                        $status = 2;
+                    }
                 } else {
                     //check status for valitations
                     $status = !$validatePhoneNumber ? 12 : 13;

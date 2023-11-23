@@ -36,29 +36,46 @@ body {
   
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_22410_16506406729562977.jpg");
+  background-image: url("https://deborahadmin.com/app/uploads/2022/01/good-health-1641031462-61d02726ac977-1024x614.jpg");
+  /* background-image: url("https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_22410_16506406729562977.jpg"); */
   overflow: hidden;
-  opacity: 0.8;
+  opacity: 1;
 }
 .box-form .left .overlay {
   padding: 00px;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
   box-sizing: border-box;
+  background-color: transparent;
 }
 .box-form .left .overlay h1 {
-  font-size: 10vmax;
+  font-size: 9vmax;
   line-height: 1;
   font-weight: 900;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  width: 400px;
+  margin-left: 600px;
+  margin-top: 0px;
+  margin-bottom: 60px;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px #d30000cc, 0 0 30px rgba(0, 238, 255, 0.8);
 }
+
+/* .box-form .left .lines p {
+    font-size: 24px;
+    color: white;
+    margin: 10px 0;
+    margin-left: 600px;
+    margin-top: 0px;
+    margin-bottom: 60px; */
+ 
+
 .box-form .left .overlay span p {
+  
   margin-top: 30px;
   font-weight: 900;
 }
 .box-form .left .overlay span q {
+
   margin-top: 30px;
   font-weight: 900;
 }
@@ -87,7 +104,7 @@ body {
 .box-form .right h5 {
   font-size: 6vmax;
   line-height: 0;
-  color: #000;
+  color: #ff0101;
 }
 .box-form .right p {
   font-size: 14px;
@@ -117,15 +134,15 @@ body {
 }
 .box-form .right button {
   float: right;
-  color: rgb(62, 62, 62);
+  color: rgb(248, 243, 243);
   font-size: 16px;
   padding: 12px 35px;
   border-radius: 50px;
   display: inline-block;
   border: 0;
   outline: 0;
-  box-shadow: 0px 4px 20px 0px #fa6767;
-  background-image: linear-gradient(135deg, #fa6767 10%, #fa6767 100%);
+  box-shadow: 0px 4px 20px 0px #ff0202;
+  background-image: linear-gradient(135deg, #ff0202 10%, #fa6767 100%);
 }
 
 

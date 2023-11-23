@@ -18,7 +18,7 @@ use classes\DbConnector;
 /**
  * Description of hospital
  *
- * @author Sankavi
+ * 
  */
 class hospital {
 
@@ -135,6 +135,7 @@ class hospital {
 
             $query = "SELECT * FROM `hospital` WHERE `hospitalId` = ?";
 
+            
             $pstmt = $con->prepare($query);
             $pstmt->bindValue(1, $hospitalId);
 
@@ -155,6 +156,8 @@ class hospital {
         }
     }
 
+
+    
     public static function showAllHospital() {
         try {
             $dbcon = new DbConnector();

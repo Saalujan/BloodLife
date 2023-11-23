@@ -13,10 +13,10 @@
         session_start();
         echo $_POST["Verificationcode"];
         ?>
-        <form action="../HomePages/Login/ForgotPasswordVerification.php" method="post">
+        <form action="OTPprocess.php" method="POST">
             <p>An OTP has been sent to your email. Please enter it below:</p>
             <label for="otp">OTP:</label>
-            <input type="text" id="otp" name="otp" pattern="[0-9]{6}" required>
+            <input type="number"  name="VerificationCode" required>
             <button type="submit">Next</button>
         </form>
     </div>

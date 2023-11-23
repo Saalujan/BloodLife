@@ -64,8 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo $districtId;
     
    
-   
-   
     //create user object with token
    $user = new User(null, null, null, null, $token, null, null, null, null);
     

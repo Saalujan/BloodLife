@@ -157,7 +157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <input type="hidden" name="token" value="<?php echo $token; ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                                         <div class="text-end"><br>
                                             <div class="buttons">
-                                                <a href="../Dashboards/BloodBankDashboard.php?page=bbraa&bloodGroup=<?php echo validation::encryptedValue($requestObj["bloodGroup"]); ?>"> <button type="button" class="btn btn-outline-secondary"><strong> Accept </strong></button></a>
+                                                <a href="../Dashboards/BloodBankDashboard.php?page=bbraa&HosReq=<?php echo validation::encryptedValue($requestObj["hospitalRequestID"]); ?>&bloodGroup=<?php echo validation::encryptedValue($requestObj["bloodGroup"]); ?>"> <button type="button" class="btn btn-outline-secondary"><strong> Accept </strong></button></a>
                                                 <button type="sumbit" class="btn btn-outline-danger"><strong>Publish </strong></button>
 
                                             </div><br>

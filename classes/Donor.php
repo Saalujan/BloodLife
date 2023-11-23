@@ -423,7 +423,7 @@ public function getDonorDetails() {
             $this->image = $rs->image;
             $this->bloodBankId = $rs->bloodBankId;
             $this->districtId = $rs->districtId;
-            $this->donorId = $rs->donorId;
+            
             return true;
         } else {
             return false;

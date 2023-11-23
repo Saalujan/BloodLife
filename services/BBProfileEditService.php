@@ -84,21 +84,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             } else {
                 //status for not valid token
-                $status = 7;
+                $status = "Unauthorzied Activity! ";
             }
         } else {
             //status for empty value
-            $status = 8;
+            $status = "All Fields need to be Filled!";
         }
     } else {
         //status for isset value
-        $status = 9;
+        $status = "All Fields need to be Filled!";
     }
 } else {
-
+//status for ivalid request method
     echo "Invalid request method";
 }
-
+//display the final status
 echo $status;
 
 

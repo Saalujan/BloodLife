@@ -18,7 +18,7 @@ use classes\DbConnector;
 /**
  * Description of bloodBank
  *
- * @author Sankavi
+ *
  */
 class bloodBank {
 

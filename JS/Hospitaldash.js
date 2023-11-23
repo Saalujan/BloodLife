@@ -35,3 +35,16 @@ function pprofile() {
 }
 
 
+function EditHosProfile(hospitalId){
+
+    console.log(hospitalId);
+    
+    $.ajax({url: "../HospitalFiles/HospitalProfile.php",
+    method: 'post',
+    data: {hospitalId : hospitalId },
+    success: function (result) {
+
+        $("#EditHosProfile").html(result);
+    }});
+        
+}

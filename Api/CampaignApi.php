@@ -24,7 +24,7 @@ if ($method === "GET") {
         if ($user->validateToken() && $user->getDonorId() != null) {
 
 
-            $Allcamp = campaign::getAllCampaign();
+            $Allcamp = campaign::getAllCampaigns();
 
             if ($Allcamp == null) {
 

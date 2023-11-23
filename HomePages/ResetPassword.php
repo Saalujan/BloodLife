@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Reset Password</h2>
-        <form action="../HomePages/Login/ChangePassword.php" method="post">
+        <form action="HomePages/Resetpasswordprocess.php" method="post">
             <label for="new-password">New Password:</label>
             <input type="password" id="new-password" name="new-password" required>
             <label for="confirm-password">Confirm Password:</label>

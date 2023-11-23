@@ -269,7 +269,7 @@ class User
             $mail->send();
             return true;
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+           
         }
     }
 
@@ -399,5 +399,29 @@ class User
         }
 
         
+    }
+    public function getUserByEmail($email){
+        try{
+        $dbcon = new DbConnector;
+        $conn = $dbcon->getConnection();
+
+        $query = "SELECT FROM `user` WHERE `email`=`email`  ";
+        $pstmt = $conn->prepare($query);
+        $pstmt ->bindValue(1,$email,PDO::PARAM_STR);
+        $pstmt->execute();
+
+        if ($pstmt->rowCount() > 0) {
+            $rs = $pstmt->fetch(PDO::FETCH_OBJ);
+            $this->Token = $rs->Token;
+            $this->expire = $rs->expire;
+            $this->userId = $rs->userId;
+            $this->userRole = $rs->userRole;
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
     }
 }
